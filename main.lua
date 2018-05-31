@@ -9,8 +9,8 @@ function love.load()
     love.window.setMode(window.width, window.height)
     love.window.setTitle("Soccer2d")
 
-    player1 = Player:new(80, 360)
-    player2 = Player:new(1200, 360)
+    player1 = Player:new(160, 360)
+    player2 = Player:new(1120, 360)
 
     ball = Ball:new()
 end
