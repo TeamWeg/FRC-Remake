@@ -96,6 +96,7 @@ function love.update()
 end
 
 function love.draw()
+    love.graphics.setColor(255,255,255)
     love.graphics.circle("fill", player1.x, player1.y, player1.radius)
     love.graphics.circle("fill", player2.x, player2.y, player2.radius)
     love.graphics.circle("line", ball.x, ball.y, ball.radius)

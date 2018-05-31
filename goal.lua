@@ -40,9 +40,9 @@ function Goal:update(ball)
         height = ball.radius * 2
     }
     if ball.x == Goal.x + Goal.width or ball.x + ball.radius == Goal.x then
-        ball.x_change = ball.x_change * -1
+        ball.x_speed = ball.x_speed * -1
     elseif func.check_collision_rect(self.top, ball_rect) or func.check_collision_rect(self.bottom, ball_rect) then
-        ball.y_change = ball.y_change * -1
+        ball.y_speed = ball.y_speed * -1
     end
 end
 
