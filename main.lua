@@ -17,31 +17,23 @@ end
 
 function love.update()
     -- controls
-    if love.keyboard.isDown("w") and player1.y > 0 + player1.radius then
+    if love.keyboard.isDown("w") then
         player1.y = player1.y - player1.y_speed
-    else
-        player1.y = 0
     end
-    if love.keyboard.isDown("s") and player1.y < 720 - player1.radius then
+    if love.keyboard.isDown("s") then
         player1.y = player1.y + player1.y_speed
-    else
-        player1.y = 720
     end
-    if love.keyboard.isDown("a") and player1.x > 0 + player1.radius then
+    if love.keyboard.isDown("a") then
         player1.x = player1.x - player1.x_speed
-    else
-        player1.x = 0
     end
-    if love.keyboard.isDown("d") and player1.x < 720 - player1.radius then
+    if love.keyboard.isDown("d") then
         player1.x = player1.x + player1.x_speed
-    else
-        player1.x = 1280
     end
 
-    if love.keyboard.isDown("up") and player2.y > 0 + player2.radius then
+    if love.keyboard.isDown("up") then
         player2.y = player2.y - player2.y_speed
     end
-    if love.keyboard.isDown("down")and player1.y < 720 - player1.radius then
+    if love.keyboard.isDown("down") then
         player2.y = player2.y + player2.y_speed
     end
     if love.keyboard.isDown("left") then
@@ -51,7 +43,6 @@ function love.update()
         player2.x = player2.x + player2.x_speed
     end
 
-    -- update entities
     ball:update(player1, player2)
 end
 
