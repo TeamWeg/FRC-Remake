@@ -1,4 +1,6 @@
 Player = require "player"
+func = require "func"
+Ball = require "ball"
 
 function love.load()
     window = {}
@@ -7,8 +9,10 @@ function love.load()
     love.window.setMode(window.width, window.height)
     love.window.setTitle("Soccer2d")
 
-    player1 = Player:new(20, 300)
-    player2 = Player:new(650, 300)
+    player1 = Player:new(80, 360)
+    player2 = Player:new(1200, 360)
+
+    ball = Ball:new()
 end
 
 function love.update()
@@ -38,9 +42,12 @@ function love.update()
     if love.keyboard.isDown("right") then
         player2.x = player2.x + player2.x_speed
     end
+
+    ball:update(player1, player2)
 end
 
 function love.draw()
-    love.graphics.circle("fill", player1.x, player1.y, player1.width)
-    love.graphics.circle("fill", player2.x, player2.y, player2.width)
+    love.graphics.circle("fill", player1.x, player1.y, player1.radius)
+    love.graphics.circle("fill", player2.x, player2.y, player2.radius)
+    love.graphics.circle("line", ball.x, ball.y, ball.radius)
 end

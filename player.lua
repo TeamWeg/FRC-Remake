@@ -1,11 +1,11 @@
 local Player = {
     x = 0,
     y = 0,
-    width = 50,
-    height = 50,
+    radius = 25,
     x_speed = 5,
     y_speed = 5
 }
+Player.__index = Player
 
 function Player:new(x, y)
     local p = {}
@@ -13,8 +13,7 @@ function Player:new(x, y)
 
     p.x = x
     p.y = y
-    p.width = 50
-    p.height = 50
+    p.radius = 50
     p.x_speed = 5
     p.y_speed = 5
 
