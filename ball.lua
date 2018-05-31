@@ -1,7 +1,9 @@
 local Ball = {
     x = 0,
     y = 0,
-    radius = 10
+    radius = 10,
+    x_speed = 0,
+    y_speed = 0
 }
 Ball.__index = Ball
 

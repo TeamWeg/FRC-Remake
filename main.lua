@@ -15,8 +15,8 @@ function love.load()
 
     ball = Ball:new()
 
-    leftGoal = Goal:new(0, 245)
-    rightGoal = Goal:new(1205, 245)
+    left_goal = Goal:new(0, 245)
+    right_goal = Goal:new(1205, 245)
 end
 
 --update screen every tick
@@ -89,13 +89,16 @@ function love.update()
       end
     end
 
+    -- update methods
     ball:update(player1, player2)
+    left_goal:update(ball)
+    right_goal:update(ball)
 end
 
 function love.draw()
     love.graphics.circle("fill", player1.x, player1.y, player1.radius)
     love.graphics.circle("fill", player2.x, player2.y, player2.radius)
     love.graphics.circle("line", ball.x, ball.y, ball.radius)
-    love.graphics.rectangle("line", leftGoal.x, leftGoal.y, leftGoal.width, leftGoal.height)
-    love.graphics.rectangle("line", rightGoal.x, rightGoal.y, rightGoal.width, rightGoal.height)
+    love.graphics.rectangle("line", left_goal.x, left_goal.y, left_goal.width, left_goal.height)
+    love.graphics.rectangle("line", right_goal.x, right_goal.y, right_goal.width, right_goal.height)
 end
