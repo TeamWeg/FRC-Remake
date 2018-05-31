@@ -43,16 +43,16 @@ function Ball:update(player1, player2)
     end
 
     if func.check_collision_circle(self, player1) then
-        if self.x > player1.x then
+        if self.x > player1.x + 20 then
             self.x_speed = 10
         end
-        if self.x < player1.x then
+        if self.x < player1.x - 20 then
             self.x_speed = -10
         end
-        if self.y > player1.y then
+        if self.y > player1.y + 20 then
             self.y_speed = 10
         end
-        if self.y < player1.y then
+        if self.y < player1.y - 20 then
             self.y_speed = -10
         end
     end
