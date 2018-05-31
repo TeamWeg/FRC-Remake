@@ -1,6 +1,7 @@
 Player = require "player"
 func = require "func"
 Ball = require "ball"
+Goal = require "goal"
 
 function love.load()
     window = {}
@@ -13,6 +14,9 @@ function love.load()
     player2 = Player:new(1120, 360)
 
     ball = Ball:new()
+
+    leftGoal = Goal:new(0, 245)
+    rightGoal = Goal:new(1205, 245)
 end
 
 --update screen every tick
@@ -92,4 +96,6 @@ function love.draw()
     love.graphics.circle("fill", player1.x, player1.y, player1.radius)
     love.graphics.circle("fill", player2.x, player2.y, player2.radius)
     love.graphics.circle("line", ball.x, ball.y, ball.radius)
+    love.graphics.rectangle("line", leftGoal.x, leftGoal.y, leftGoal.width, leftGoal.height)
+    love.graphics.rectangle("line", rightGoal.x, rightGoal.y, rightGoal.width, rightGoal.height)
 end
