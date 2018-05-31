@@ -5,6 +5,7 @@ function love.load()
     window.width = 1280
     window.height = 720
     love.window.setMode(window.width, window.height)
+    love.window.setTitle("Soccer2d")
 
     player1 = Player:new(20, 300)
     player2 = Player:new(650, 300)
@@ -23,6 +24,19 @@ function love.update()
     end
     if love.keyboard.isDown("d") then
         player1.x = player1.x + player1.x_speed
+    end
+
+    if love.keyboard.isDown("up") then
+        player2.y = player2.y - player2.y_speed
+    end
+    if love.keyboard.isDown("down") then
+        player2.y = player2.y + player2.y_speed
+    end
+    if love.keyboard.isDown("left") then
+        player2.x = player2.x - player2.x_speed
+    end
+    if love.keyboard.isDown("right") then
+        player2.x = player2.x + player2.x_speed
     end
 end
 

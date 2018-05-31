@@ -21,12 +21,4 @@ function Player:new(x, y)
     return p
 end
 
-function Player:move_x(speed)
-    self.x = self.x + speed
-end
-
-function Player:move_y(speed)
-    self.y = self.y + speed
-end
-
 return Player
