@@ -15,15 +15,18 @@ function love.load()
     ball = Ball:new()
 end
 
+--update screen every tick
 function love.update()
-    -- controls
+    -- Player 1 Controls
+    --move up if 'w' pressed
     if love.keyboard.isDown("w") then
       if player1.y > 0 + player1.radius then
-        player1.y = player1.y - player1.y_speed
+        player1.y = player1.y - player1.y_speed --move player
       else
-        player1.y = 0 + player1.radius
+        player1.y = 0 + player1.radius --reset player location if moving off screen
       end
     end
+    --move down if 's' pressed
     if love.keyboard.isDown("s") then
       if player1.y < 720 - player1.radius then
         player1.y = player1.y + player1.y_speed
@@ -31,6 +34,7 @@ function love.update()
         player1.y = 720 - player1.radius
       end
     end
+    --move left if 'a' pressed
     if love.keyboard.isDown("a") then
       if player1.x > 0 + player1.radius then
         player1.x = player1.x - player1.x_speed
@@ -38,6 +42,7 @@ function love.update()
         player1.x = 0 + player1.radius
       end
     end
+    --move right if 'd' pressed
     if love.keyboard.isDown("d") then
       if player1.x < 1280 - player1.radius then
         player1.x = player1.x + player1.x_speed
@@ -46,13 +51,16 @@ function love.update()
       end
     end
 
+    -- Player 2 Controls
+    --move up if up arrow pressed
     if love.keyboard.isDown("up") then
       if player2.y > 0 + player2.radius then
-        player2.y = player2.y - player2.y_speed
+        player2.y = player2.y - player2.y_speed --move player
       else
-        player2.y = 0 + player2.radius
+        player2.y = 0 + player2.radius --reset player location if moving off screen
       end
     end
+    --move down if down arrow pressed
     if love.keyboard.isDown("down") then
       if player2.y < 720 - player2.radius then
         player2.y = player2.y + player2.y_speed
@@ -60,6 +68,7 @@ function love.update()
         player2.y = 720 - player2.radius
       end
     end
+    --move left if left arrow pressed
     if love.keyboard.isDown("left") then
       if player2.x > 0 + player2.radius then
         player2.x = player2.x - player2.x_speed
@@ -67,6 +76,7 @@ function love.update()
         player2.x = 0 + player2.radius
       end
     end
+    --move right if right arrow pressed
     if love.keyboard.isDown("right") then
       if player2.x < 1280 - player2.radius then
         player2.x = player2.x + player2.x_speed
