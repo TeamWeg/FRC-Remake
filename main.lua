@@ -130,7 +130,7 @@ function love.draw()
 	love.graphics.circle("fill", player2.x, player2.y, player2.radius)
 
 	-- ball --
-	love.graphics.draw(ball.img, ball.x, ball.y)
+	love.graphics.draw(ball.img, ball.x - 10, ball.y - 10)
 
 	-- goals --
 	love.graphics.setColor(255, 255, 255)
