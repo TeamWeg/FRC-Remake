@@ -39,5 +39,7 @@ function Player:reset()
 end
 
 function Player:update()
+    timer:update()
+end
 
 return Player
