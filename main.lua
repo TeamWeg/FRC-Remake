@@ -130,11 +130,10 @@ function love.draw()
 	love.graphics.circle("fill", player2.x, player2.y, player2.radius)
 
 	-- ball --
-	love.graphics.setColor(0, 0, 0)
-	love.graphics.circle("fill", ball.x, ball.y, ball.radius)
-	love.graphics.setColor(255, 255, 255)
+	love.graphics.draw(ball.img, ball.x, ball.y)
 
 	-- goals --
+	love.graphics.setColor(255, 255, 255)
 	love.graphics.rectangle("line", left_goal.x, left_goal.y, left_goal.width, left_goal.height)
 	love.graphics.rectangle("line", right_goal.x, right_goal.y, right_goal.width, right_goal.height)
 
@@ -142,8 +141,6 @@ function love.draw()
 	love.graphics.setColor(0, 0, 0)
 	love.graphics.setFont(love.graphics.newFont(12))
 	love.graphics.print(love.timer.getFPS(), 1250, 680)
-
-	love.graphics.draw(ball.img, ball.x, ball.y)
 
 	local cur_time = love.timer.getTime()
   	 if next_time <= cur_time then
