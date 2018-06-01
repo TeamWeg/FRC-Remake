@@ -6,7 +6,8 @@ local Player = {
     radius = 25,
     x_speed = 5,
     y_speed = 5,
-    score = 0
+    score = 0,
+    timer = Timer:new(2)
 }
 Player.__index = Player
 
@@ -26,9 +27,17 @@ function Player:new(x, y)
     return p
 end
 
+function Player:BOOST()
+
+    self.x_speed = 10
+    self.y_speed = 10
+end
+
 function Player:reset()
     self.x = self.start_x
     self.y = self.start_y
 end
+
+function Player:update()
 
 return Player
