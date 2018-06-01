@@ -18,10 +18,8 @@ function love.load()
 	left_goal = Goal:new(0, 245)
 	right_goal = Goal:new(1205, 245)
 
-	love.graphics.setFont(love.graphics.newFont("fonts/Boogaloo-Regular.ttf", 36))
-
 	min_dt = 1/60 --fps
-   	next_time = love.timer.getTime()
+	   next_time = love.timer.getTime()
 end
 
 -- update screen every tick
@@ -144,6 +142,8 @@ function love.draw()
 	love.graphics.setColor(0, 0, 0)
 	love.graphics.setFont(love.graphics.newFont(12))
 	love.graphics.print(love.timer.getFPS(), 1250, 680)
+
+	love.graphics.draw(ball.img, ball.x, ball.y)
 
 	local cur_time = love.timer.getTime()
   	 if next_time <= cur_time then
