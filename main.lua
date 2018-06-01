@@ -2,7 +2,6 @@ Player = require "player"
 func = require "func"
 Ball = require "ball"
 Goal = require "goal"
-Timer = require "timer"
 
 function love.load()
 	window = {}
@@ -124,6 +123,7 @@ function love.draw()
 	love.graphics.circle("line", 640, 360, 150)
 
 	-- scores --
+	love.graphics.setFont(love.graphics.newFont("fonts/Boogaloo-Regular.ttf", 36))
 	love.graphics.print(player1.score, 10, 5)
 	love.graphics.print(player2.score, 1250, 5)
 
@@ -142,5 +142,13 @@ function love.draw()
 
 	-- framerate --
 	love.graphics.setColor(0, 0, 0)
+	love.graphics.setFont(love.graphics.newFont())
 	love.graphics.print(love.timer.getFPS(), 1250, 680)
+
+	local cur_time = love.timer.getTime()
+  	 if next_time <= cur_time then
+    	  next_time = cur_time
+    	  return
+ 	end
+  	love.timer.sleep(next_time - cur_time)
 end
