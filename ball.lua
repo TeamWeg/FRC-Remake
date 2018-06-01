@@ -20,6 +20,13 @@ function Ball:new()
     return b
 end
 
+function Ball:reset()
+    self.x = window.width / 2 - self.radius
+    self.y = window.height / 2 - self.radius
+    self.x_speed = 0
+    self.y_speed = 0
+end
+
 function Ball:update(player1, player2)
     if self.x < 0 or self.x > 1280 then
         if self.x < 0 then
@@ -42,6 +49,7 @@ function Ball:update(player1, player2)
         self.y_speed = self.y_speed * -1
     end
 
+    -- TODO do real trig to create realistic paths
     if func.check_collision_circle(self, player1) then
         if self.x > player1.x + 20 then
             self.x_speed = 10
@@ -56,6 +64,21 @@ function Ball:update(player1, player2)
             self.y_speed = -10
         end
     end
+    if func.check_collision_circle(self, player2) then
+        if self.x > player2.x + 20 then
+            self.x_speed = 10
+        end
+        if self.x < player2.x - 20 then
+            self.x_speed = -10
+        end
+        if self.y > player2.y + 20 then
+            self.y_speed = 10
+        end
+        if self.y < player2.y - 20 then
+            self.y_speed = -10
+        end
+    end
+    
 
     self.x = self.x + self.x_speed
     self.y = self.y + self.y_speed

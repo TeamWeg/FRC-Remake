@@ -44,6 +44,21 @@ function Goal:update(ball)
     elseif func.check_collision_rect(self.top, ball_rect) or func.check_collision_rect(self.bottom, ball_rect) then
         ball.y_speed = ball.y_speed * -1
     end
+
+    if func.check_collision_rect(self, ball_rect) then
+        if self.x >= 0 and self.x <= 300 then
+            player2.score = player2.score + 1
+            ball:reset()
+            player1:reset()
+            player2:reset()
+        end
+        if self.x >= 980 and self.x <= 1280 then
+            player1.score = player1.score + 1
+            ball:reset()
+            player1:reset()
+            player2:reset()
+        end
+    end
 end
 
 return Goal

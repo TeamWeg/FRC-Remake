@@ -17,6 +17,8 @@ function love.load()
 
     left_goal = Goal:new(0, 245)
     right_goal = Goal:new(1205, 245)
+
+    counter = 0
 end
 
 --update screen every tick
@@ -96,10 +98,27 @@ function love.update()
 end
 
 function love.draw()
+    -- world
+    love.graphics.setColor(0, 155, 0)
+    love.graphics.rectangle("fill", 0, 0, 1280, 720)
     love.graphics.setColor(255,255,255)
+    love.graphics.rectangle("fill", 637.5, 0, 5, 720)
+    love.graphics.circle("line", 640, 360, 150)
+
+    -- scores
+    love.graphics.print(player1.score, 10, 10)
+    love.graphics.print(player2.score, 1260, 10)
+
+    -- players
     love.graphics.circle("fill", player1.x, player1.y, player1.radius)
     love.graphics.circle("fill", player2.x, player2.y, player2.radius)
-    love.graphics.circle("line", ball.x, ball.y, ball.radius)
+
+    -- ball
+    love.graphics.setColor(0, 0, 0)
+    love.graphics.circle("fill", ball.x, ball.y, ball.radius)
+    love.graphics.setColor(255, 255, 255)
+
+    -- goals
     love.graphics.rectangle("line", left_goal.x, left_goal.y, left_goal.width, left_goal.height)
     love.graphics.rectangle("line", right_goal.x, right_goal.y, right_goal.width, right_goal.height)
 end
