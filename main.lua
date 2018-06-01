@@ -96,7 +96,7 @@ function love.update(dt)
 	  	end
 	end
 
-	-- BOOST
+	-- GO SPEEDY FAST FAST
   	if love.keyboard.isDown("lshift") then
 	  	player1:BOOST()
   	end
@@ -115,12 +115,7 @@ function love.update(dt)
 end
 
 function love.draw()
-	local cur_time = love.timer.getTime()
-   	if next_time <= cur_time then
-      	next_time = cur_time
-     	return
-   	end
-   love.timer.sleep(next_time - cur_time)
+    
 	-- world --
 	love.graphics.setColor(0, 155, 0)
 	love.graphics.rectangle("fill", 0, 0, 1280, 720)
@@ -144,4 +139,8 @@ function love.draw()
 	-- goals --
 	love.graphics.rectangle("line", left_goal.x, left_goal.y, left_goal.width, left_goal.height)
 	love.graphics.rectangle("line", right_goal.x, right_goal.y, right_goal.width, right_goal.height)
+
+	-- framerate --
+	love.graphics.setColor(0, 0, 0)
+	love.graphics.print(love.timer.getFPS(), 1250, 680)
 end
