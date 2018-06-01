@@ -142,7 +142,7 @@ function love.draw()
 
 	-- framerate --
 	love.graphics.setColor(0, 0, 0)
-	love.graphics.setFont(love.graphics.newFont())
+	love.graphics.setFont(love.graphics.newFont(12))
 	love.graphics.print(love.timer.getFPS(), 1250, 680)
 
 	local cur_time = love.timer.getTime()
