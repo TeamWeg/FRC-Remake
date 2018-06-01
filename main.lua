@@ -18,7 +18,8 @@ function love.load()
     left_goal = Goal:new(0, 245)
     right_goal = Goal:new(1205, 245)
 
-    counter = 0
+    love.graphics.setFont(love.graphics.newFont("fonts/Boogaloo-Regular.ttf", 36))
+    
 end
 
 --update screen every tick
@@ -106,8 +107,8 @@ function love.draw()
     love.graphics.circle("line", 640, 360, 150)
 
     -- scores
-    love.graphics.print(player1.score, 10, 10)
-    love.graphics.print(player2.score, 1260, 10)
+    love.graphics.print(player1.score, 10, 5)
+    love.graphics.print(player2.score, 1250, 5)
 
     -- players
     love.graphics.circle("fill", player1.x, player1.y, player1.radius)
