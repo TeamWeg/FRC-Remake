@@ -14,11 +14,15 @@ function Timer:new(length)
     return t
 end
 
+function Timer:start()
+    self.start_time = love.timer.getTime()
+end
+
 function Timer:reset()
     self.start_time = love.timer.getTime()
 end
 
-function Timer:update()
+function Timer:get_done()
     if (love.timer.getTime() - self.start_time) >= self.length then
         return true
     end

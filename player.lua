@@ -7,7 +7,8 @@ local Player = {
     x_speed = 5,
     y_speed = 5,
     score = 0,
-    timer = Timer:new(2)
+    boost = false,
+    start_time = love.timer.getTime()
 }
 Player.__index = Player
 
@@ -23,14 +24,15 @@ function Player:new(x, y)
     p.x_speed = 5
     p.y_speed = 5
     p.score = 0
+    p.boost = false
+    p.start_time = love.timer.getTime()
 
     return p
 end
 
 function Player:BOOST()
-
-    self.x_speed = 10
-    self.y_speed = 10
+    self.boost = true
+    self.start_time = love.timer.getTime()
 end
 
 function Player:reset()
@@ -39,9 +41,14 @@ function Player:reset()
 end
 
 function Player:update()
-    if timer:update() then
+    if self.boost then
+        self.x_speed = 10
+        self.y_speed = 10
+    end
+    if (love.timer.getTime() - self.start_time) >= 2 then
         self.x_speed = 5
         self.y_speed = 5
+        self.boost = false
     end
 end
 

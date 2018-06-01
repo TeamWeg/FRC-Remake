@@ -14,8 +14,8 @@ function Ball:new()
     b.x = window.width / 2
     b.y = window.height / 2
     b.radius = 10
-    x_speed = 0
-    y_speed = 0
+    b.x_speed = 0
+    b.y_speed = 0
 
     return b
 end
