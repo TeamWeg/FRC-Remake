@@ -110,6 +110,8 @@ function love.update(dt)
 	ball:update(player1, player2)
 	left_goal:update(ball)
 	right_goal:update(ball)
+	player1:update()
+	player2:update()
 end
 
 function love.draw()

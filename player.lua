@@ -39,7 +39,10 @@ function Player:reset()
 end
 
 function Player:update()
-    timer:update()
+    if timer:update() then
+        self.x_speed = 5
+        self.y_speed = 5
+    end
 end
 
 return Player
