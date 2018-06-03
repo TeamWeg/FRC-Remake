@@ -6,6 +6,7 @@ World = require "world"
 Scores = require "scores"
 Powerup = require "powerup"
 Controls = require "controls"
+Boost = require "boost"
 
 function love.load()
 	window = {}

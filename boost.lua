@@ -1,17 +1,11 @@
 local Boost = Powerup:new()
 
-function Boost:new(x, y)
-    local b = {}
-    setmetatable(b, Boost)
-
-    b.x = x 
-    b.y = y
-    b.radius = 10
-    b.used = false
-    b.color = (255, 215, 0)
-
-    return b
-end
+Boost.x = x 
+Boost.y = y
+Boost.radius = 10
+Boost.used = false
+Boost.color = {255, 215, 0}
+Boost.start_time = 0
 
 function Boost:update(player1, player2)
     if self.used == false then
