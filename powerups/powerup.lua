@@ -8,6 +8,8 @@ local Powerup = {
 }
 Powerup.__index = Powerup
 
+-- Powerups: boost, hook player to you, block goals, reverse controls, immovable ball, 
+
 function Powerup:new(x, y)
     local p = {}
     setmetatable(p, Powerup)

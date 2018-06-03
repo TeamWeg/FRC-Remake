@@ -1,12 +1,12 @@
-Player = require "player"
 func = require "func"
 Ball = require "ball"
 Goal = require "goal"
 World = require "world"
+Boost = require "powerups/boost"
+Player = require "player"
 Scores = require "scores"
-Powerup = require "powerup"
+Powerup = require "powerups/powerup"
 Controls = require "controls"
-Boost = require "boost"
 
 function love.load()
 	window = {}
@@ -23,21 +23,29 @@ function love.load()
 	left_goal = Goal:new(0, 245)
 	right_goal = Goal:new(1205, 245)
 
-	powerup_list = {}
-
 	world = World:new()
 	scores = Scores:new()
 	controls = Controls:new()
 
-	powerup1 = Boost:new(1180, 620)
-	powerup2 = Boost:new(100, 620)
-	powerup3 = Boost:new(1180, 100)
-	powerup4 = Boost:new(100, 100)
+	-- boosts (which are, in fact, powerups)
+	boost_list = {
+		boost1 = Boost:new(100, 100),
+		boost2 = Boost:new(1180, 100),
+		boost3 = Boost:new(100, 620),
+		boost4 = Boost:new(1180, 620),
+		boost5 = Boost:new(590, 390),
+		boost6 = Boost:new(640, 210),
+		boost7 = Boost:new(640, 510),
+		boost8 = Boost:new(690, 390)
+	}
 
-	table.insert(powerup1, powerup_list)
-	table.insert(powerup2, powerup_list)
-	table.insert(powerup3, powerup_list)
-	table.insert(powerup4, powerup_list)
+	-- powerups
+	powerup_list = {
+		powerup1 = Powerup:new(1180, 620),
+		powerup2 = Powerup:new(100, 620),
+		powerup3 = Powerup:new(1180, 100),
+		powerup4 = Powerup:new(100, 100)
+	}
 
 	min_dt = 1/60 --fps
 	   next_time = love.timer.getTime()
@@ -63,7 +71,6 @@ function love.update(dt)
 end
 
 function love.draw()
-    
 	-- world --
 	world:draw()
 
@@ -82,10 +89,13 @@ function love.draw()
 	right_goal:draw()
 
 	-- powerups --
-	powerup1:draw()
-	powerup2:draw()
-	powerup3:draw()
-	powerup4:draw()
+	for i,v in ipairs(boost_list) do
+		boost_list[i]:draw()
+	end
+
+	for i,v in ipairs(powerup_list) do
+		powerup_list[i]:draw()
+	end
 
 	-- framerate --
 	love.graphics.setColor(0, 0, 0)
