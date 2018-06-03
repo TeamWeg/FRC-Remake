@@ -60,30 +60,30 @@ function Ball:update(player1, player2)
     -- check if player has booped the ball
     if func.check_collision_circle(self, player1) then
         if self.x > player1.x + 20 then
-            self.x_speed = 10
+            self.x_speed = player1.x_speed * 2
         end
         if self.x < player1.x - 20 then
-            self.x_speed = -10
+            self.x_speed = player1.x_speed * -2
         end
         if self.y > player1.y + 20 then
-            self.y_speed = 10
+            self.y_speed = player1.y_speed * 2
         end
         if self.y < player1.y - 20 then
-            self.y_speed = -10
+            self.y_speed = player1.y_speed * -2
         end
     end
     if func.check_collision_circle(self, player2) then
         if self.x > player2.x + 20 then
-            self.x_speed = 10
+            self.x_speed = player2.x_speed * 2
         end
         if self.x < player2.x - 20 then
-            self.x_speed = -10
+            self.x_speed = player2.x_speed * -2
         end
         if self.y > player2.y + 20 then
-            self.y_speed = 10
+            self.y_speed = player2.y_speed * 2
         end
         if self.y < player2.y - 20 then
-            self.y_speed = -10
+            self.y_speed = player2.y_speed * -2
         end
     end
     
