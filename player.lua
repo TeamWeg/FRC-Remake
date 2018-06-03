@@ -8,6 +8,7 @@ local Player = {
     y_speed = 5,
     score = 0,
     boost = false,
+    boost_charges = 1,
     start_time = love.timer.getTime()
 }
 Player.__index = Player
@@ -25,6 +26,7 @@ function Player:new(x, y)
     p.y_speed = 5
     p.score = 0
     p.boost = false
+    p.boost_charges = 1
     p.start_time = love.timer.getTime()
 
     return p
@@ -38,6 +40,11 @@ end
 function Player:reset()
     self.x = self.start_x
     self.y = self.start_y
+    self.boost_charges = 1
+end
+
+function Player:draw()
+    love.graphics.circle("fill", self.x, self.y, self.radius)
 end
 
 function Player:update()
@@ -45,7 +52,7 @@ function Player:update()
         self.x_speed = 10
         self.y_speed = 10
     end
-    if (love.timer.getTime() - self.start_time) >= 2 then
+    if (love.timer.getTime() - self.start_time) >= 0.5 then
         self.x_speed = 5
         self.y_speed = 5
         self.boost = false

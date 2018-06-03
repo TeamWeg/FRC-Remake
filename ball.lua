@@ -29,7 +29,12 @@ function Ball:reset()
     self.y_speed = 0
 end
 
+function Ball:draw()
+    love.graphics.draw(self.img, self.x - 10, self.y - 10)
+end
+
 function Ball:update(player1, player2)
+    -- check if ball is off the screen, is so move it back onto the screen
     if self.x < 0 or self.x > 1280 then
         if self.x < 0 then
             self.x = self.radius
@@ -51,7 +56,8 @@ function Ball:update(player1, player2)
         self.y_speed = self.y_speed * -1
     end
 
-    -- TODO do real trig to create realistic paths
+    -- TODO do real trig to create realistic paths --
+    -- check if player has booped the ball
     if func.check_collision_circle(self, player1) then
         if self.x > player1.x + 20 then
             self.x_speed = 10
@@ -81,10 +87,11 @@ function Ball:update(player1, player2)
         end
     end
     
-
+    -- moves ball
     self.x = self.x + self.x_speed
     self.y = self.y + self.y_speed
     
+    -- decelerates ball
     if self.x_speed > 0 then
         self.x_speed = self.x_speed - .5
     end

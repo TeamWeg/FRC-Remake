@@ -61,4 +61,9 @@ function Goal:update(ball)
     end
 end
 
+function Goal:draw()
+    love.graphics.setColor(255, 255, 255)
+	love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
+end
+
 return Goal
