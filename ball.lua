@@ -23,8 +23,8 @@ function Ball:new()
 end
 
 function Ball:reset()
-    self.x = window.width / 2 - self.radius
-    self.y = window.height / 2 - self.radius
+    self.x = window.width / 2
+    self.y = window.height / 2
     self.x_speed = 0
     self.y_speed = 0
 end

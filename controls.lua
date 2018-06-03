@@ -8,7 +8,7 @@ function Controls:new()
     return c
 end
 
-function Controls.update()
+function Controls:update()
     -- Player 1 Controls
 	-- move up if 'w' pressed
 	if love.keyboard.isDown("w") then
