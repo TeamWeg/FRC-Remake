@@ -1,12 +1,12 @@
-func = require "func"
-Ball = require "ball"
-Goal = require "goal"
-World = require "world"
-Powerup = require "powerups/powerup"
-Boost = require "powerups/boost"
-Player = require "player"
-Scores = require "scores"
-Controls = require "controls"
+func = require "assets/func"
+Ball = require "game/ball"
+Goal = require "game/goal"
+World = require "game/world"
+Powerup = require "game/powerups/powerup"
+Boost = require "game/powerups/boost"
+Player = require "game/player"
+Scores = require "game/scores"
+Controls = require "game/controls"
 
 function love.load()
 	window = {}

@@ -4,7 +4,7 @@ local Ball = {
     radius = 10,
     x_speed = 0,
     y_speed = 0,
-    img = love.graphics.newImage("res/ball.png")
+    img = love.graphics.newImage("assets/media/ball.png")
 }
 Ball.__index = Ball
 
@@ -17,7 +17,7 @@ function Ball:new()
     b.radius = 10
     b.x_speed = 0
     b.y_speed = 0
-    b.img = love.graphics.newImage("res/ball.png")
+    b.img = love.graphics.newImage("assets/media/ball.png")
 
     return b
 end

@@ -1,5 +1,5 @@
 local World = {
-    img = love.graphics.newImage("res/World-BG.png")
+    img = love.graphics.newImage("assets/media/World-BG.png")
 }
 World.__index = World
 
@@ -7,7 +7,7 @@ function World:new()
     local w = {}
     setmetatable(w, World)
 
-    w.img = love.graphics.newImage("res/World-BG.png")
+    w.img = love.graphics.newImage("assets/media/World-BG.png")
 
     return w
 end
