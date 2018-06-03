@@ -44,6 +44,7 @@ function Player:reset()
 end
 
 function Player:draw()
+    love.graphics.setColor(255,255,255)
     love.graphics.circle("fill", self.x, self.y, self.radius)
 end
 

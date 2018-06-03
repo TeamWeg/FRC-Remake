@@ -2,10 +2,10 @@ func = require "func"
 Ball = require "ball"
 Goal = require "goal"
 World = require "world"
+Powerup = require "powerups/powerup"
 Boost = require "powerups/boost"
 Player = require "player"
 Scores = require "scores"
-Powerup = require "powerups/powerup"
 Controls = require "controls"
 
 function love.load()
@@ -29,22 +29,22 @@ function love.load()
 
 	-- boosts (which are, in fact, powerups)
 	boost_list = {
-		boost1 = Boost:new(100, 100),
-		boost2 = Boost:new(1180, 100),
-		boost3 = Boost:new(100, 620),
-		boost4 = Boost:new(1180, 620),
-		boost5 = Boost:new(590, 390),
-		boost6 = Boost:new(640, 210),
-		boost7 = Boost:new(640, 510),
-		boost8 = Boost:new(690, 390)
+		boost1 = Boost:new(100, 100), -- top left
+		boost2 = Boost:new(1180, 100), -- top right
+		boost3 = Boost:new(100, 620), -- bottom left
+		boost4 = Boost:new(1180, 620), -- bottom right
+		boost5 = Boost:new(270, 360), -- mid left
+		boost6 = Boost:new(640, 210), -- mid top
+		boost7 = Boost:new(640, 510), -- mid bottom
+		boost8 = Boost:new(1010, 360) -- mid right
 	}
 
 	-- powerups
 	powerup_list = {
-		powerup1 = Powerup:new(1180, 620),
-		powerup2 = Powerup:new(100, 620),
-		powerup3 = Powerup:new(1180, 100),
-		powerup4 = Powerup:new(100, 100)
+		powerup1 = Powerup:new(270, 180), -- top left
+		powerup2 = Powerup:new(1010, 180), -- top right
+		powerup3 = Powerup:new(270, 540), -- bottom left
+		powerup4 = Powerup:new(1010, 540) -- bottom right
 	}
 
 	min_dt = 1/60 --fps
@@ -77,10 +77,6 @@ function love.draw()
 	-- scores --
 	scores:draw()
 
-	-- players --
-	player1:draw()
-	player2:draw()
-
 	-- ball --
 	ball:draw()
 
@@ -89,13 +85,17 @@ function love.draw()
 	right_goal:draw()
 
 	-- powerups --
-	for i,v in ipairs(boost_list) do
-		boost_list[i]:draw()
+	for _,v in pairs(boost_list) do
+		v:draw()
 	end
 
-	for i,v in ipairs(powerup_list) do
-		powerup_list[i]:draw()
+	for _,v in pairs(powerup_list) do
+		v:draw()
 	end
+
+	-- players --
+	player1:draw()
+	player2:draw()
 
 	-- framerate --
 	love.graphics.setColor(0, 0, 0)
