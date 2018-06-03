@@ -54,8 +54,6 @@ end
 -- update screen every tick
 function love.update(dt)
 	next_time = next_time + min_dt
-	
-	
 
 	-- update methods
 	controls:update()
@@ -65,8 +63,12 @@ function love.update(dt)
 	player1:update()
 	player2:update()
 
+	for _,v in pairs(boost_list) do
+		v:update(player1, player2)
+	end
+
 	for _,v in pairs(powerup_list) do
-		v.update(player1, player2)
+		v:update(player1, player2)
 	end
 end
 
