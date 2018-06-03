@@ -78,15 +78,23 @@ function Controls.update()
     end
 
   -- GO SPEEDY FAST FAST
-    if love.keyboard.isDown("lshift") and player1.boost_charges > 0 then
+    if love.keyboard.isDown("lshift") and player1.boost_charges > 0 and player1.boost_released then
         player1:BOOST()
         player1.boost_charges = player1.boost_charges - 1
+        player1.boost_released = false
+    end
+    if not love.keyboard.isDown("lshift") then
+        player1.boost_released = true
     end
 
-  if love.keyboard.isDown("kp0") and player2.boost_charges > 0 then
-      player2:BOOST()
-      player2.boost_charges = player2.boost_charges - 1
-  end
+    if love.keyboard.isDown("kp0") and player2.boost_charges > 0 and player2.boost_released then
+        player2:BOOST()
+        player2.boost_charges = player2.boost_charges - 1
+        player2.boost_released = false
+    end
+    if not love.keyboard.isDown("kp0") then
+        player2.boost_released = true
+    end
 end
 
 return Controls

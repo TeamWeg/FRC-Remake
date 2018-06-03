@@ -9,7 +9,8 @@ local Player = {
     score = 0,
     boost = false,
     boost_charges = 1,
-    start_time = love.timer.getTime()
+    start_time = love.timer.getTime(),
+    boost_released = true
 }
 Player.__index = Player
 
@@ -28,6 +29,7 @@ function Player:new(x, y)
     p.boost = false
     p.boost_charges = 1
     p.start_time = love.timer.getTime()
+    p.boost_released = true
 
     return p
 end
