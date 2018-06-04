@@ -29,17 +29,27 @@ function Powerup:draw()
     love.graphics.circle("fill", self.x, self.y, self.radius)
 end
 
-function Powerup:use(player1, player2)
+function Powerup:use(player, ball)
     n = math.random(4)
-    if n == 1 then
+    if player.powerup_type == 1 then
         --hook.update()
-    elseif n == 2 then
+    elseif  player.powerup_type == 2 then
         --block.update()
-    elseif n == 3 then
+    elseif  player.powerup_type == 3 then
         --reverse.update()
     else
-        immovable.update(player1, player2)
+        immovable:update(player, ball)
     end
+
+    -- if player2.powerup_type == 1 then
+    --     --hook.update()
+    -- elseif  player2.powerup_type == 2 then
+    --     --block.update()
+    -- elseif  player2.powerup_type == 3 then
+    --     --reverse.update()
+    -- else
+    --     immovable.update(player2)
+    -- end
 end
 
 function Powerup:update(player1, player2)
@@ -51,11 +61,15 @@ function Powerup:update(player1, player2)
     else
         self.color = {255, 0, 0}
         if func.check_collision_circle(self, player1) then
+            n = math.random(4)
+            player1.powerup_type = n
             player1.powerup_charges = player1.powerup_charges + 1
             self.used = true
             self.start_time = love.timer.getTime()
         end
         if func.check_collision_circle(self, player2) then
+            n = math.random(4)
+            player2.powerup_type = n
             player2.powerup_charges = player2.powerup_charges + 1
             self.used = true
             self.start_time = love.timer.getTime()

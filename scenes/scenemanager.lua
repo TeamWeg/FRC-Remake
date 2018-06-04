@@ -1,15 +1,23 @@
+Game = require "scenes/game"
+--MainMenu = require "scenes/mainmenu"
+
 local SceneManager = {
-    scenes = nil,
+    scenes = {},
     current_scene = nil
+    -- mainmenu = MainMenu:new()
 }
 SceneManager.__index = SceneManager
 
-function SceneManager:new(scenes)
+function SceneManager:new()
     local s = {}
     setmetatable(s, SceneManager)
 
-    s.scenes = scenes
-    s.current_scene = nil
+    s.scenes = {
+        "Game",
+        "MainMenu"
+    }
+    s.current_scene = ""
+    --s.mainmenu = MainMenu:new()
 
     return s
 end
@@ -19,11 +27,21 @@ function SceneManager:set_scene(scene)
 end
 
 function SceneManager:update()
-    self.current_scene:update()
+    Game.update()
+    if self.current_scene == "Game" then
+
+    elseif self.current_scene == "MainMenu" then
+     --   self.mainmenu:update()
+    end
 end
 
 function SceneManager:draw()
-    self.current_scene:draw()
+    Game.draw()
+    if self.current_scene == "Game" then
+        --Game.draw()
+    elseif self.current_scene == "MainMenu" then
+     --   self.mainmenu:draw()
+    end
 end
 
 return SceneManager

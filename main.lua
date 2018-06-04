@@ -11,8 +11,6 @@ Controls = require "game/controls"
 
 -- scenes
 SceneManager = require "scenes/scenemanager"
-Game = require "scenes/game"
--- MainMenu = require "scenes/mainmenu"
 
 function love.load()
 	window = {}
@@ -21,17 +19,9 @@ function love.load()
 	love.window.setMode(window.width, window.height)
 	love.window.setTitle("Soccer2d")
 
-	local game = Game:new()
-	-- local mainmenu = MainMenu:new()
+	scenemanager = SceneManager:new()
 
-	local scenes = {
-		GameScene = game,
-		-- MainMenuScene = mainmenu
-	}
-
-	scenemanager = SceneManager:new(scenes)
-
-	scenemanager:set_scene("GameScene")
+	scenemanager:set_scene("Game")
 
 	min_dt = 1/60 --fps
 	   next_time = love.timer.getTime()
@@ -47,7 +37,7 @@ end
 
 function love.draw()
 	scenemanager:draw()
-	love.graphics.print(scenes)
+--	love.graphics.print(scenes)
 
 	local cur_time = love.timer.getTime()
   	if next_time <= cur_time then

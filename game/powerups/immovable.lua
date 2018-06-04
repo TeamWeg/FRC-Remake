@@ -12,18 +12,8 @@ end
 
 setmetatable(Immovable, {__index = Powerup})
 
-function Immovable:update(player1, player2, ball)
-    temp_x = ball:get_speed_x()
-    temp_y = ball:get_speed_y()
-
-    if self.used then
-        ball:draw()
-        ball:set_speed_x(temp_x)
-        ball:set_speed_y(temp_y)
-    else
-        self.used = true
+function Immovable:update(player, ball)
+    if self.start_time <= 3 then
         ball:set_speed_x(0)
         ball:set_speed_y(0)
-        
-    end
 end

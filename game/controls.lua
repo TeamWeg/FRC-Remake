@@ -95,6 +95,11 @@ function Controls:update()
     if not love.keyboard.isDown("kp0") then
         player2.boost_released = true
     end
+
+  -- POWERUP
+    if love.keyboard.isDown("f") and player1.powerup_charges > 0 then  
+
+    end
 end
 
 return Controls
