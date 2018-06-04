@@ -44,6 +44,7 @@ end
 
 function love.draw()
 	scenemanager:draw()
+	love.graphics.print(scenes)
 
 	local cur_time = love.timer.getTime()
   	if next_time <= cur_time then

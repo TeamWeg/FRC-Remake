@@ -15,17 +15,17 @@ function SceneManager:new(scenes)
 end
 
 function SceneManager:set_scene(scene)
-    if scenes[scene] then
+    if self.scenes[scene] then
         self.current_scene = scene
     end
 end
 
 function SceneManager:update()
-    self.current_scene.update()
+    --self.current_scene.update()
 end
 
 function SceneManager:draw()
-    self.current_scene.draw()
+    --self.current_scene.draw()
 end
 
 return SceneManager
