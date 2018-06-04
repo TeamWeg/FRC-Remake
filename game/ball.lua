@@ -23,6 +23,20 @@ function Ball:new()
     return b
 end
 
+function Ball:set_speed_x(speed)
+    self.x_speed = speed
+end
+function Ball:set_speed_y(speed)
+    self.y_speed = speed
+end
+
+function Ball:get_speed_x()
+    return self.x_speed
+end
+function Ball:get_speed_y()
+    return self.y_speed
+end
+
 function Ball:reset()
     self.x = love.window.getMode() / 2
     self.y = love.window.getMode() / 2

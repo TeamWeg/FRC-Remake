@@ -9,6 +9,7 @@ local Player = {
     score = 0,
     boost = false,
     boost_charges = 1,
+    powerup_charges = 0,
     start_time = love.timer.getTime(),
     boost_released = true
 }
@@ -28,6 +29,7 @@ function Player:new(x, y)
     p.score = 0
     p.boost = false
     p.boost_charges = 1
+    p.powerup_charges = 0
     p.start_time = love.timer.getTime()
     p.boost_released = true
 
