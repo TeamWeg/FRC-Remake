@@ -12,14 +12,28 @@ function Ball:new()
     local b = {}
     setmetatable(b, Ball)
 
-    b.x = window.width / 2
-    b.y = window.height / 2
+    b.x = love.graphics.getWidth() / 2
+    b.y = love.graphics.getHeight() / 2
     b.radius = 10
     b.x_speed = 0
     b.y_speed = 0
     b.img = love.graphics.newImage("assets/media/ball.png")
 
     return b
+end
+
+function Ball:set_speed_x(speed)
+    self.x_speed = speed
+end
+function Ball:set_speed_y(speed)
+    self.y_speed = speed
+end
+
+function Ball:get_speed_x()
+    return self.x_speed
+end
+function Ball:get_speed_y()
+    return self.y_speed
 end
 
 function Ball:reset()
