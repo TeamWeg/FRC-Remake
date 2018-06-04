@@ -3,7 +3,7 @@ Game = require "scenes/game"
 
 local SceneManager = {
     scenes = {},
-    current_scene = nil
+    current_scene = ""
     -- mainmenu = MainMenu:new()
 }
 SceneManager.__index = SceneManager
@@ -27,20 +27,19 @@ function SceneManager:set_scene(scene)
 end
 
 function SceneManager:update()
-    Game.update()
     if self.current_scene == "Game" then
-
+        Game.update()
     elseif self.current_scene == "MainMenu" then
      --   self.mainmenu:update()
     end
 end
 
 function SceneManager:draw()
-    Game.draw()
     if self.current_scene == "Game" then
-        --Game.draw()
+        Game.draw()
     elseif self.current_scene == "MainMenu" then
      --   self.mainmenu:draw()
+     love.graphics.print("Menu", 100, 100)
     end
 end
 
