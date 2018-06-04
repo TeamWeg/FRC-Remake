@@ -12,7 +12,7 @@ Controls = require "game/controls"
 -- scenes
 SceneManager = require "scenes/scenemanager"
 Game = require "scenes/game"
-MainMenu = require "scenes/mainmenu"
+-- MainMenu = require "scenes/mainmenu"
 
 function love.load()
 	window = {}
@@ -21,9 +21,12 @@ function love.load()
 	love.window.setMode(window.width, window.height)
 	love.window.setTitle("Soccer2d")
 
+	local game = Game:new()
+	-- local mainmenu = MainMenu:new()
+
 	local scenes = {
-		GameScene = Game,
-		MainMenuScene = MainMenu
+		GameScene = game,
+		-- MainMenuScene = mainmenu
 	}
 
 	scenemanager = SceneManager:new(scenes)
