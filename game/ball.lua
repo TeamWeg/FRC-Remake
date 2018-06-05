@@ -12,8 +12,9 @@ function Ball:new()
     local b = {}
     setmetatable(b, Ball)
 
-    b.x = love.graphics.getWidth() / 2
-    b.y = love.graphics.getHeight() / 2
+    x, y = love.window.getMode()
+    b.x = x / 2
+    b.y = y  / 2
     b.radius = 10
     b.x_speed = 0
     b.y_speed = 0
@@ -37,8 +38,8 @@ function Ball:get_speed_y()
 end
 
 function Ball:reset()
-    self.x = window.width / 2
-    self.y = window.height / 2
+    self.x = love.window.getMode() / 2
+    self.y = love.window.getMode() / 2
     self.x_speed = 0
     self.y_speed = 0
 end
