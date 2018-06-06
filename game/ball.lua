@@ -12,7 +12,7 @@ function Ball:new()
     local b = {}
     setmetatable(b, Ball)
 
-    x, y = love.window.getMode()
+    x, y = World:get_dimensions()
     b.x = x / 2
     b.y = y  / 2
     b.radius = 10
@@ -50,8 +50,10 @@ function Ball:draw()
 end
 
 function Ball:update(player1, player2)
+    -- print(self.x)
+    -- print(love.window.getMode())
     -- check if ball is off the screen, is so move it back onto the screen
-    if self.x < 0 or self.x > 1280 then
+    if (self.x - self.radius) < 0 or (self.x + self.radius) > 1280 then
         if self.x < 0 then
             self.x = self.radius
         end
@@ -61,11 +63,11 @@ function Ball:update(player1, player2)
 
         self.x_speed = self.x_speed * -1
     end
-    if self.y < 0 or self.y > 720 then
-        if self.y < 0 then
+    if (self.y - self.radius) < 0 or (self.y + self.radius) > 720 then
+        if (self.y - self.radius) < 0 then
             self.y = 0 + self.radius
         end
-        if self.y > 720 then
+        if (self.y + self.radius) > 720 then
             self.y = 720 - self.radius
         end
 

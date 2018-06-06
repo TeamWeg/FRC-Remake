@@ -1,4 +1,6 @@
 local World = {
+    width = 1280,
+    height = 720,
     img = love.graphics.newImage("assets/media/World-BG.png")
 }
 World.__index = World
@@ -7,9 +9,15 @@ function World:new()
     local w = {}
     setmetatable(w, World)
 
+    w.width = 1280
+    w.height = 720
     w.img = love.graphics.newImage("assets/media/World-BG.png")
 
     return w
+end
+
+function World:get_dimensions()
+    return self.width, self.height
 end
 
 function World:draw()

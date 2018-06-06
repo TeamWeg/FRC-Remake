@@ -37,6 +37,9 @@ function Scores:draw()
     love.graphics.setFont(love.graphics.newFont("assets/fonts/Boogaloo-Regular.ttf", 24))
     love.graphics.print(player1.boost_charges, self.player1_boost_pos_x, self.player1_boost_pos_y)
     love.graphics.print(player2.boost_charges, self.player2_boost_pos_x, self.player2_boost_pos_y)
+
+    love.graphics.print(player1.powerup_charges, 10, 660)
+    love.graphics.print(player2.powerup_charges, 1250, 660)
 end
 
 return Scores
