@@ -51,10 +51,10 @@ function MainMenu.update()
         down_released = true
     end
 
-    if love.keyboard.isDown("enter") then
-        if current_option == "Play" then
-            scenemanager.set_scene("Game")
-        elseif current_option == "Quit" then
+    if love.keyboard.isDown("return") then
+        if options_keys[options_pos] == "Play" then
+            scenemanager:set_scene("Game")
+        elseif options_keys[options_pos] == "Quit" then
             love.event.quit()
         end
     end
