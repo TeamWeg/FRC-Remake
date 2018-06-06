@@ -1,5 +1,8 @@
 local MainMenu = {}
 
+up_released = true
+down_released = true
+
 --all seectable options by the player
 local options = {
     Play = {x = 50, y = 300},
@@ -26,18 +29,26 @@ options_pos = 1
 function MainMenu.update()
     current_option = options_keys[options_pos]
 
-    if love.keyboard.isDown("w") then
+    if love.keyboard.isDown("w") and up_released then
         options_pos = options_pos + 1
         if options_pos > options_length then
             options_pos = 1
         end
+        up_released = false
+    end
+    if not love.keyboard.isDown("w") then
+        up_released = true
     end
 
-    if love.keyboard.isDown("s") then
+    if love.keyboard.isDown("s") and down_released then
         options_pos = options_pos - 1
         if options_pos < 1 then
             options_pos = options_length
         end
+        down_released = false
+    end
+    if not love.keyboard.isDown("s") then
+        down_released = true
     end
 
     if love.keyboard.isDown("enter") then
