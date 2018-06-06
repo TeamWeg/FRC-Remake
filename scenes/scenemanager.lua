@@ -1,5 +1,5 @@
 Game = require "scenes/game"
---MainMenu = require "scenes/mainmenu"
+MainMenu = require "scenes/mainmenu"
 
 local SceneManager = {
     scenes = {},
@@ -30,7 +30,7 @@ function SceneManager:update()
     if self.current_scene == "Game" then
         Game.update()
     elseif self.current_scene == "MainMenu" then
-     --   self.mainmenu:update()
+        MainMenu.update()
     end
 end
 
@@ -38,8 +38,7 @@ function SceneManager:draw()
     if self.current_scene == "Game" then
         Game.draw()
     elseif self.current_scene == "MainMenu" then
-     --   self.mainmenu:draw()
-     love.graphics.print("Menu", 100, 100)
+        MainMenu.draw()
     end
 end
 

@@ -21,7 +21,7 @@ function love.load()
 
 	scenemanager = SceneManager:new()
 
-	scenemanager:set_scene("Game")
+	scenemanager:set_scene("MainMenu")
 
 	min_dt = 1/60 --fps
 	   next_time = love.timer.getTime()
