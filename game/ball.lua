@@ -38,8 +38,9 @@ function Ball:get_speed_y()
 end
 
 function Ball:reset()
-    self.x = love.window.getMode() / 2
-    self.y = love.window.getMode() / 2
+    x, y = love.window.getMode()
+    self.x = x / 2
+    self.y = y / 2
     self.x_speed = 0
     self.y_speed = 0
 end
@@ -62,10 +63,10 @@ function Ball:update(player1, player2)
     end
     if self.y < 0 or self.y > 720 then
         if self.y < 0 then
-            self.y = 0
+            self.y = 0 + self.radius
         end
         if self.y > 720 then
-            self.y = 720
+            self.y = 720 - self.radius
         end
 
         self.y_speed = self.y_speed * -1
@@ -100,13 +101,14 @@ function Ball:update(player1, player2)
         if self.y < player2.y - 20 then
             self.y_speed = player2.y_speed * -2
         end
-    end
+    end 
     
     -- moves ball
     self.x = self.x + self.x_speed
     self.y = self.y + self.y_speed
     
     -- decelerates ball
+
     if self.x_speed > 0 then
         self.x_speed = self.x_speed - .5
     end
@@ -118,7 +120,7 @@ function Ball:update(player1, player2)
     end
     if self.y_speed < 0 then
         self.y_speed = self.y_speed + .5
-    end
+    end 
 end
 
 return Ball

@@ -29,30 +29,8 @@ function Powerup:draw()
     love.graphics.circle("fill", self.x, self.y, self.radius)
 end
 
-function Powerup:use(player, ball)
-    n = math.random(4)
-    if player.powerup_type == 1 then
-        --hook.update()
-    elseif  player.powerup_type == 2 then
-        --block.update()
-    elseif  player.powerup_type == 3 then
-        --reverse.update()
-    else
-        immovable:update(player, ball)
-    end
-
-    -- if player2.powerup_type == 1 then
-    --     --hook.update()
-    -- elseif  player2.powerup_type == 2 then
-    --     --block.update()
-    -- elseif  player2.powerup_type == 3 then
-    --     --reverse.update()
-    -- else
-    --     immovable.update(player2)
-    -- end
-end
-
 function Powerup:update(player1, player2)
+    n = 1
     if self.used then
         self.color = {0, 0, 0}
         if (love.timer.getTime() - self.start_time) >= 5 then

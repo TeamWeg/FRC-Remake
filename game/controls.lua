@@ -5,10 +5,13 @@ function Controls:new()
     local c = {}
     setmetatable(c, Controls)
 
+    c.powerup_thing = false
+
     return c
 end
 
 function Controls:update()
+    --print(player1)
     -- Player 1 Controls
 	-- move up if 'w' pressed
 	if love.keyboard.isDown("w") then
@@ -92,13 +95,31 @@ function Controls:update()
         player2.boost_charges = player2.boost_charges - 1
         player2.boost_released = false
     end
-    if not love.keyboard.isDown("kp0") then
+    if not love.keyboard.isDown("rctrl") then
         player2.boost_released = true
     end
 
-  -- POWERUP
-    if love.keyboard.isDown("f") and player1.powerup_charges > 0 then  
+  -- POWERUPS
+    if love.keyboard.isDown("lctrl") and player1.powerup_charges > 0 and player1.powerup_released then
+        RandPowerup:update(player1)
+        player1.powerup_charges = player1.powerup_charges - 1
+        player1.powerup_released = false
+    end
+    if not love.keyboard.isDown("lctrl") then
+        player1.powerup_released = true
+    end
 
+    if love.keyboard.isDown("rshift") and player2.powerup_charges > 0 and player2.powerup_released then
+        self.powerup_thing = true
+        player2.powerup_charges = player2.powerup_charges - 1
+        player2.powerup_released = false
+    end
+    if not love.keyboard.isDown("rshift") then
+        player2.powerup_released = true
+    end
+
+    if self.powerup_thing then
+        RandPowerup:update(player2)
     end
 end
 

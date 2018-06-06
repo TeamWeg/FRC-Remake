@@ -12,8 +12,10 @@ end
 
 setmetatable(Immovable, {__index = Powerup})
 
-function Immovable:update(player, ball)
-    if self.start_time <= 3 then
-        ball:set_speed_x(0)
-        ball:set_speed_y(0)
+function Immovable:update()
+    print("loser")
+    ball:set_speed_x(0)
+    ball:set_speed_y(0)
 end
+
+return Immovable

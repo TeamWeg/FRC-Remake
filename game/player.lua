@@ -11,7 +11,8 @@ local Player = {
     boost_charges = 1,
     powerup_charges = 0,
     start_time = love.timer.getTime(),
-    boost_released = true
+    boost_released = true,
+    powerup_released = true
 }
 Player.__index = Player
 
@@ -32,6 +33,7 @@ function Player:new(x, y)
     p.powerup_charges = 0
     p.start_time = love.timer.getTime()
     p.boost_released = true
+    p.powerup_released = true
 
     return p
 end

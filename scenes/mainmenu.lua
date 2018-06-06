@@ -69,6 +69,7 @@ function MainMenu.draw()
     love.graphics.setColor(255, 255, 255)
     love.graphics.setFont(love.graphics.newFont("assets/fonts/Boogaloo-Regular.ttf", 64))
     love.graphics.print("Soccer2d", 50, 100)
+    love.graphics.setColor(0, 0, 0)
     love.graphics.setFont(love.graphics.newFont("assets/fonts/Boogaloo-Regular.ttf", 48))
     for k,v in pairs(options) do
         love.graphics.print(k, v.x, v.y)

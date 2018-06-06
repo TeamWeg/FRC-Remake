@@ -6,8 +6,10 @@ World = require "game/world"
 Powerup = require "game/powerups/powerup"
 Boost = require "game/powerups/boost"
 Player = require "game/player"
+RandPowerup = require "game/powerups/randpowerup"
 Scores = require "game/scores"
 Controls = require "game/controls"
+Immovable = require "game/powerups/immovable"
 
 -- scenes
 SceneManager = require "scenes/scenemanager"

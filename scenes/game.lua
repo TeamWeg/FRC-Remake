@@ -12,6 +12,8 @@ world = World:new()
 scores = Scores:new()
 controls = Controls:new()
 
+immovable = Immovable:new()
+
 -- boosts (which are, in fact, powerups)
 boost_list = {
 	boost1 = Boost:new(100, 100), -- top left
