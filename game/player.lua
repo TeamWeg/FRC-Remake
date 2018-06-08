@@ -12,7 +12,8 @@ local Player = {
     powerup_charges = 0,
     start_time = love.timer.getTime(),
     boost_released = true,
-    powerup_released = true
+    powerup_released = true,
+    color = {math.random(255), math.random(255), math.random(255)}
 }
 Player.__index = Player
 
@@ -34,6 +35,7 @@ function Player:new(x, y)
     p.start_time = love.timer.getTime()
     p.boost_released = true
     p.powerup_released = true
+    p.color = {love.math.random() * 256, love.math.random() * 256, love.math.random() * 256}
 
     return p
 end
@@ -50,8 +52,10 @@ function Player:reset()
 end
 
 function Player:draw()
-    love.graphics.setColor(255,255,255)
+    love.graphics.setColor(0,0,0)
     love.graphics.circle("fill", self.x, self.y, self.radius)
+    love.graphics.setColor(self.color)
+    love.graphics.circle("fill", self.x, self.y, self.radius - 10)
 end
 
 function Player:update()
