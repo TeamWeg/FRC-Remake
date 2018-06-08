@@ -1,12 +1,14 @@
 local MainMenu = {}
 
+img = love.graphics.newImage("assets/media/menu.png")
+
 up_released = true
 down_released = true
 
 --all seectable options by the player
 local options = {
-    Play = {x = 50, y = 300},
-    Quit = {x = 50, y = 400}
+    Play = {x = 250, y = 300},
+    Quit = {x = 250, y = 400}
 }
 
 local options_length = 0
@@ -62,23 +64,21 @@ end
 
 function MainMenu.draw()
     -- background 
-
-    mimg = love.graphics.newImage("assets/media/menu.png")
-    love.graphics.draw(mimg, 0, 0)
+    love.graphics.draw(img, 0, 0)
   --  love.graphics.setColor({15, 50, 255, 255})
 --    love.graphics.rectangle("fill", 0, 0, 1280, 720)
 
     -- menu
     love.graphics.setColor(255, 255, 255)
     love.graphics.setFont(love.graphics.newFont("assets/fonts/Boogaloo-Regular.ttf", 64))
-    love.graphics.print("Soccer2d", 50, 100)
+    love.graphics.print("Soccer2d", 250, 100)
 
     love.graphics.setFont(love.graphics.newFont("assets/fonts/Boogaloo-Regular.ttf", 48))
     for k,v in pairs(options) do
         love.graphics.print(k, v.x, v.y)
     end
 
-    love.graphics.print(">", options[options_keys[options_pos]].x - 40, options[options_keys[options_pos]].y)
+    love.graphics.print("•", options[options_keys[options_pos]].x - 40, options[options_keys[options_pos]].y)
 end
 
 return MainMenu
