@@ -17,7 +17,7 @@ local Player = {
 }
 Player.__index = Player
 
-function Player:new(x, y)
+function Player:new(x, y, color)
     local p = {}
     setmetatable(p, Player)
 
@@ -35,7 +35,7 @@ function Player:new(x, y)
     p.start_time = love.timer.getTime()
     p.boost_released = true
     p.powerup_released = true
-    p.color = {love.math.random() * 256, love.math.random() * 256, love.math.random() * 256}
+    p.color = color
 
     return p
 end

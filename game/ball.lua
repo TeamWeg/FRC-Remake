@@ -112,16 +112,16 @@ function Ball:update(player1, player2)
     -- decelerates ball
 
     if self.x_speed > 0 then
-        self.x_speed = self.x_speed - .5
+        self.x_speed = self.x_speed - .25
     end
     if self.x_speed < 0 then
-        self.x_speed = self.x_speed + .5
+        self.x_speed = self.x_speed + .25
     end
     if self.y_speed > 0 then
-        self.y_speed = self.y_speed - .5
+        self.y_speed = self.y_speed - .25
     end
     if self.y_speed < 0 then
-        self.y_speed = self.y_speed + .5
+        self.y_speed = self.y_speed + .25
     end 
 end
 

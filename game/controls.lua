@@ -90,12 +90,12 @@ function Controls:update()
         player1.boost_released = true
     end
 
-    if love.keyboard.isDown("rctrl") and player2.boost_charges > 0 and player2.boost_released then
+    if love.keyboard.isDown("kp0") and player2.boost_charges > 0 and player2.boost_released then
         player2:BOOST()
         player2.boost_charges = player2.boost_charges - 1
         player2.boost_released = false
     end
-    if not love.keyboard.isDown("rctrl") then
+    if not love.keyboard.isDown("kp0") then
         player2.boost_released = true
     end
 

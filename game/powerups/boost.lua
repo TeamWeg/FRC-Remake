@@ -11,6 +11,7 @@ function Boost:new(x, y)
     b.used = false
     b.color = {255, 215, 0}
     b.start_time = 0
+    b.img = love.graphics.newImage("assets/media/boost.png")
 
     return b
 end
@@ -25,6 +26,7 @@ function Boost:update(player1, player2)
         end
     else
         self.color = {255, 215, 0}
+
         if func.check_collision_circle(self, player1) then
             player1.boost_charges = player1.boost_charges + 1
             self.used = true
@@ -37,5 +39,14 @@ function Boost:update(player1, player2)
         end
     end
 end
+
+-- function Powerup:draw()
+--     if self.used then
+--         self.color = {100, 100, 100}
+--         love.graphics.circle("fill", self.x, self.y, self.radius)
+--     else
+--         love.graphics.draw(self.img, self.x, self.y)
+--     end
+-- end
 
 return Boost

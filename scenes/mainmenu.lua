@@ -1,6 +1,7 @@
+--greg is cool
 local MainMenu = {}
 
-img = love.graphics.newImage("assets/media/menu.png")
+img = love.graphics.newImage("assets/media/menu2.jpg")
 
 up_released = true
 down_released = true

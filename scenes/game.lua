@@ -1,7 +1,7 @@
 local Game = {}
 
-player1 = Player:new(160, 360)
-player2 = Player:new(1120, 360)
+player1 = Player:new(160, 360, {255, 0, 0})
+player2 = Player:new(1120, 360, {0, 0, 255})
 
 ball = Ball:new()
 

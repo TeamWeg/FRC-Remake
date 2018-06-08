@@ -20,6 +20,7 @@ function love.load()
 	window.height = 720
 	love.window.setMode(window.width, window.height)
 	love.window.setTitle("Soccer2d")
+	-- love.window.setFullscreen(true)
 
 	scenemanager = SceneManager:new()
 
