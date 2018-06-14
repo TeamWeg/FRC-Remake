@@ -15,7 +15,7 @@ function Ball:new()
     x, y = World:get_dimensions()
     b.x = x / 2
     b.y = y  / 2
-    b.radius = 1
+    b.radius = 10
     b.x_speed = 0
     b.y_speed = 0
     b.img = love.graphics.newImage("assets/media/ball.png")
