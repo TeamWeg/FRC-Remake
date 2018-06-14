@@ -18,15 +18,15 @@ function Goal:new(x, y)
     g.height = 225
     g.top = {
         x = g.x,
-        y = g.y - 5,
+        y = g.y - 30,
         width = g.width,
-        height = 5
+        height = 30
     }
     g.bottom = {
         x = g.x, 
         y = g.y + g.height, 
         width = g.width,
-        height = 5
+        height = 30
     }
 
     return g
@@ -63,7 +63,9 @@ end
 
 function Goal:draw()
     love.graphics.setColor(255, 255, 255)
-	love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
+    love.graphics.rectangle("line", self.x, self.y, self.width, self.height)
+  --  love.graphics.rectangle("line", self.top.x, self.top.y, self.top.width, self.top.height)
+  --  love.graphics.rectangle("line", self.bottom.x, self.bottom.y, self.bottom.width, self.bottom.height)
 end
 
 return Goal
