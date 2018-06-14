@@ -21,11 +21,15 @@ function Scores:new()
     s.player1_score_pos_y = 5
     s.player1_boost_pos_x = 10
     s.player1_boost_pos_y = 680
+    s.player1_powerup_pos_x = 10
+    s.player1_powerup_pos_y = 660
 
     s.player2_score_pos_x = 1250
     s.player2_score_pos_y = 5
-    s.player2_boost_pos_x = 1240
+    s.player2_boost_pos_x = 1250
     s.player2_boost_pos_y = 680
+    s.player2_powerup_pos_x = 1250
+    s.player2_powerup_pos_y = 660
 
     return s
 end
@@ -38,8 +42,8 @@ function Scores:draw()
     love.graphics.print(player1.boost_charges, self.player1_boost_pos_x, self.player1_boost_pos_y)
     love.graphics.print(player2.boost_charges, self.player2_boost_pos_x, self.player2_boost_pos_y)
 
-    love.graphics.print(player1.powerup_charges, 10, 660)
-    love.graphics.print(player2.powerup_charges, 1250, 660)
+    love.graphics.print(player1.powerup_charges, self.player1_powerup_pos_x, self.player1_powerup_pos_y)
+    love.graphics.print(player2.powerup_charges, self.player2_powerup_pos_x, self.player2_powerup_pos_y)
 end
 
 return Scores

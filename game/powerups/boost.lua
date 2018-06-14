@@ -7,11 +7,12 @@ function Boost:new(x, y)
 
     b.x = x 
     b.y = y
-    b.radius = 10
+    b.radius = 19
     b.used = false
-    b.color = {255, 215, 0}
+    b.color = {255, 0, 0}
     b.start_time = 0
     b.img = love.graphics.newImage("assets/media/boost.png")
+    b.img2 = love.graphics.newImage("assets/media/boost_gray.png")
 
     return b
 end
@@ -19,13 +20,16 @@ end
 setmetatable(Boost, {__index = Powerup})
 
 function Boost:update(player1, player2)
+   -- love.graphics.draw(self.img, self.x, self.y)
     if self.used then
-        self.color = {100, 100, 100}
+      --  self.color = {100, 100, 100}
+      --  love.graphics.draw(self.img2, self.x, self.y)
         if (love.timer.getTime() - self.start_time) >= 5 then
             self.used = false
         end
     else
-        self.color = {255, 215, 0}
+     --   self.color = {255, 215, 0}
+      --  love.graphics.draw(self.img, self.x, self.y)
 
         if func.check_collision_circle(self, player1) then
             player1.boost_charges = player1.boost_charges + 1
@@ -40,13 +44,12 @@ function Boost:update(player1, player2)
     end
 end
 
--- function Powerup:draw()
---     if self.used then
---         self.color = {100, 100, 100}
---         love.graphics.circle("fill", self.x, self.y, self.radius)
---     else
---         love.graphics.draw(self.img, self.x, self.y)
---     end
--- end
+function Boost:draw()
+    if self.used then
+        love.graphics.draw(self.img2, self.x - self.radius, self.y - self.radius)
+    else
+        love.graphics.draw(self.img, self.x - self.radius, self.y - self.radius)
+    end
+end
 
 return Boost

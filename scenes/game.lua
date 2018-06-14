@@ -59,9 +59,6 @@ function Game.draw()
 	-- scores --
 	scores:draw()
 
-	-- ball --
-	ball:draw()
-
 	-- goals --
 	left_goal:draw()
 	right_goal:draw()
@@ -74,6 +71,9 @@ function Game.draw()
 	for _,v in pairs(powerup_list) do
 		v:draw()
 	end
+
+	-- ball --
+	ball:draw()
 
 	-- players --
 	player1:draw()

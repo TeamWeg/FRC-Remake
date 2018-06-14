@@ -30,7 +30,7 @@ function Player:new(x, y, color)
     p.y_speed = 5
     p.score = 0
     p.boost = false
-    p.boost_charges = 1
+    p.boost_charges = 0
     p.powerup_charges = 0
     p.start_time = love.timer.getTime()
     p.boost_released = true
@@ -48,7 +48,7 @@ end
 function Player:reset()
     self.x = self.start_x
     self.y = self.start_y
-    self.boost_charges = 1
+    self.boost_charges = 0
 end
 
 function Player:draw()
