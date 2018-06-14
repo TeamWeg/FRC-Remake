@@ -30,6 +30,7 @@ function SceneManager:update()
     if self.current_scene == "Game" then
         Game.update()
     elseif self.current_scene == "MainMenu" then
+        print("Ur Mum Gary")
         MainMenu.update()
     end
 end

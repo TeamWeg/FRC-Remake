@@ -49,6 +49,7 @@ function Player:reset()
     self.x = self.start_x
     self.y = self.start_y
     self.boost_charges = 0
+    self.powerup_charges = 0
 end
 
 function Player:draw()

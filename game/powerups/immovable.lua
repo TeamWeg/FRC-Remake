@@ -13,9 +13,11 @@ end
 setmetatable(Immovable, {__index = Powerup})
 
 function Immovable:update()
-    print("loser")
-    ball:set_speed_x(0)
-    ball:set_speed_y(0)
+    --if (love.timer.getTime() - self.start_time <= 2) then
+        ball:set_speed_x(0)
+        ball:set_speed_y(0)
+    --    self.start_time = love.timer.getTime()
+   -- end
 end
 
 return Immovable

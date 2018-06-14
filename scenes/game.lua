@@ -43,6 +43,18 @@ function Game.update()
 	player1:update()
 	player2:update()
 
+	if ((player1.x - player2.x)^2 + (player1.y - player2.y)^2) <= ((player1.radius + player2.radius)^2) then
+	--	player1.x_speed = player1.x_speed * -1
+	--	player1.y_speed = player1.y_speed * -1
+	--	player2.x_speed = player2.x_speed * -1
+	--	player2.y_speed = player2.y_speed * -1
+		player1.x = player1.x - 5
+		player1.y = player1.y - 5
+		player2.x = player2.x + 5
+		player2.y = player2.y + 5
+	end
+
+
 	for _,v in pairs(boost_list) do
 		v:update(player1, player2)
 	end
